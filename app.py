@@ -4,6 +4,10 @@ import pandas as pd
 import os
 
 app = Flask(__name__)
+@app.route('/')
+def home():
+    return 'Welcome to the Diet Recommendation API!'
+
 
 # Load food data from CSV (dummy data for example)
 foods = pd.DataFrame({
