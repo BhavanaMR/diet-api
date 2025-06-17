@@ -8,6 +8,23 @@ app = Flask(__name__)
 def home():
     return 'Welcome to the Diet Recommendation API!'
 
+from flask import jsonify  # Add this import at the top if not already there
+
+@app.route('/recommend', methods=['GET'])
+def recommend():
+    sample_diet = {
+        "diet": "Balanced",
+        "calories": 2000,
+        "meals": [
+            "Breakfast: Oatmeal with fruits",
+            "Lunch: Grilled chicken with quinoa",
+            "Snack: Mixed nuts",
+            "Dinner: Veggie stir fry with tofu"
+        ]
+    }
+    return jsonify(sample_diet)
+
+
 
 # Load food data from CSV (dummy data for example)
 foods = pd.DataFrame({
